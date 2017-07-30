@@ -1,0 +1,5 @@
+# Compiled files from local testing
+*.pyc
+
+# ignore our api_key file 
+api_key.py
