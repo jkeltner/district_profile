@@ -16,6 +16,11 @@ h3 {
 }
 
 .chart_container {
-    height: 600px
+    height: 400px;
     max-height: 100%;
+}
+
+.map {
+    height: 400px;
+    width: 100%;
 }

@@ -2,4 +2,4 @@
 *.pyc
 
 # ignore our api_key file 
-api_key.py
+api_keys.py

@@ -1,7 +1,7 @@
 import logging
 import httplib2
 import json
-from api_key import API_KEY
+from api_keys import CENSUS_API_KEY
 
 #     QUERIES
 #     This is the list of all queries for the charts.
@@ -90,4 +90,4 @@ def getURL(variables, state=None, district=None):
     if (state and district): for_block = "congressional+district:%s&in=state:%s" % (district, state)
     elif (state) : for_block = "state:%s" % state
     else : for_block = "us:*" 
-    return "http://api.census.gov/data/2015/acs1/subject?get=%s&for=%s&key=%s" % (variables, for_block, API_KEY)
+    return "http://api.census.gov/data/2015/acs1/subject?get=%s&for=%s&key=%s" % (variables, for_block, CENSUS_API_KEY)

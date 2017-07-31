@@ -4,7 +4,7 @@
 I created this project because I wanted to be able to see some overview information for my congressional district and compare it to averages in my state and the nation. When I saw there was an API that allowed you to retrieve data from the Census Bureau [American Community Survey](https://www.census.gov/programs-surveys/acs/) I figured it would be a fun project. The goal is to provide a simple way to see some overview information about any congressional district and compare figure with state and national averages.
 
 ## Census API Key
-In order to run this program you will need to have an API key provided by the Census bureau.It’s relatively easy to get one at [this ist](http://api.census.gov/data/key_signup.html). One you have it create a file names **api_key.py** and enter the following:
+In order to run this program you will need to have an API key provided by the Census bureau.It’s relatively easy to get one at [this site](http://api.census.gov/data/key_signup.html). One you have it create a file names **api_key.py** and enter the following:
 
 `API_KEY = YOUR_API_KEY`
 
@@ -21,4 +21,3 @@ This project relies on a few core technologies:
 * Bootstrap
 * Charts.js
 * Census API (of course!)
-    
