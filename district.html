@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% autoescape true %}
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -12,8 +13,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
         <script src="static/states.js"></script>
         <script src="static/bboxes.js"></script>
-        <script src="static/district_overview.js"></script>
-
+        <script src="static/district.js"></script>
+        <title>{{ state }} {{ district }}</title>
     </head>
 
     <body>
@@ -26,32 +27,34 @@ src="https://www.govtrack.us/congress/members/embed/mapframe?&bounds=-147.198,52
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-8">
-                    <h2>Demographics</h2>
-                    <h3>Age</h3>
-                    <div class="chart_container"><canvas class="chart" id="age"></canvas></div>
-                </div> <!-- End Demographis Row -->
-            </div>
+            {% for section in census_charts %}
+                <div class="row">
+                    <div class="col-lg-8">                   
+                        <div class="section_name">{{ section[0] }}</div>
+                    </div>
+                </div>
+                {% for chart in section[1] %}
+                    <div class="row">
+                        <div class="col-lg-8">           
+                            <div class="chart_name">{{ chart[0] }}</div>
+                            <div class="chart_description">{{ chart[1] }}</div>
+                            <div class="chart_container"><canvas class="chart" id="{{ chart[2] }}"></canvas></div>
+                            <div class="chart_annotation" id="{{ chart[2] }}_annotations">
+                                {% for annotation in chart[3] %}
+                                    {{ annotation }}<br>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
 
-            <h3>Ethnicity</h3>
-            <div class="col-lg-8">
-                <div class="chart_container"><canvas class="chart" id="ethnicity"></canvas></div>
-            </div>
-
-            <h2>Economics</h2>
-            <h3>Income</h3>
-            <div class="col-lg-8">
-                <div class="chart_container"><canvas class="chart" id="income"></canvas></dov>
-            </div>
-
-            <h2>Business / Economy </h2>
 
             <footer>
                 <p>Created by <a href="mailto:jkeltner@gmail.com">Jeff Keltner</a>.</p>
             </footer>
-        </div> <!-- CLOSE CONTAINER -->
 
+        </div> <!-- CLOSE CONTAINER -->
 
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
@@ -59,9 +62,10 @@ src="https://www.govtrack.us/congress/members/embed/mapframe?&bounds=-147.198,52
         <script>
             $( document ).ready(function() {
                 createCharts();
-                updateCensusCharts();
-                reCenterMap();
+                reCenterMap(state="{{state}}", district="{{district}}");  
+                updateCensusCharts(state=states["{{state}}"]["FIPS"], district="{{district}}");
             });
         </script>
     </body>
 </html>
+{% endautoescape %}

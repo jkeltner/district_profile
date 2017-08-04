@@ -6,7 +6,25 @@ function createCharts() {
     $(".chart").each(function() {
         var newChart = new Chart(this, {
             type: 'bar',
-            data: {}
+            data: {},
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontSize: 10
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }       
+            }
         })
         charts[this.id] = newChart
     })
