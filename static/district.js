@@ -58,7 +58,6 @@ function updateChartReturn(chart_name) {
     }
 }
 
-
 // simple function to update all the data
 // requires state coming in FIPS number
 function updateCensusCharts(state="06", district="27") {
@@ -82,3 +81,48 @@ function reCenterMap(state="CA", district="27") {
         bboxes[state+district][2].toFixed(2)+","+
         bboxes[state+district][1].toFixed(2))
 }
+
+// requires state as a USPS code and district as a string of the number
+function loadData(state, district) {
+    $(document).attr("title", states[state]["name"]+" "+district);
+    $('#title').text(states[state]["name"]+" "+district);
+    if (district < 10) {
+        district = "0"+district;
+    }
+    reCenterMap(state, district);
+    updateCensusCharts(states[state]["FIPS"], district);
+
+}
+
+function initialLoad(state, district) {
+    createCharts();
+    $('#state_selector').change(stateSelected)
+    $('#change_district_button').click(function() {
+        loadData($('#state_selector').val(), $('#district_selector').val());
+        $('#districtModal').modal('toggle');
+    });
+    if(state != '' && district != '') {
+        loadData(state, district);
+    } else {
+        $('#districtModal').modal(show=true);
+    }
+    $('#district_selector').attr("disabled", "disabled");
+    for (var state in states) {
+        $('#state_selector').append('<option value=' + state + '>' + states[state]["name"] + '</option>');
+    }   
+}
+
+function stateSelected() {
+    $('#district_selector').find('option').remove()
+    districts = states[$('#state_selector').val()]["districts"];
+    if (districts == 1) {
+         $('#district_selector').append('<option value="0">At Large Distict</option>');
+    } else {
+        for (var i=1; i<=districts; i++) {
+            $('#district_selector').append('<option value="'+i+'">District '+i);
+        }
+    }
+    $('#district_selector').attr("disabled", false);
+
+}
+

@@ -16,9 +16,6 @@ class DistrictProfileHandler(webapp2.RequestHandler):
     def get(self):
         state = self.request.get('state')
         district = self.request.get('district')
-        if ((state == '') or  (district == '')) : # defaults to Jeff's home state and district it not provided
-            state = "CA"         
-            district = "27"
         template_values = {
             'state' : state,
             'district' : district,

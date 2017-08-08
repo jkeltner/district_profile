@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Style sheets - bootstrap basic plus app specific  -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="static/district.css">
 
         <!-- Scripts to include -->
@@ -14,58 +15,109 @@
         <script src="static/states.js"></script>
         <script src="static/bboxes.js"></script>
         <script src="static/district.js"></script>
-        <title>{{ state }} {{ district }}</title>
+        <title>Congressional District Profiler</title>
     </head>
 
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h2>Map</h2>
-                    <iframe id="map" class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-src="https://www.govtrack.us/congress/members/embed/mapframe?&bounds=-147.198,52.552,-47.002,17.249"></iframe>
+    
+    
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" id="title" href="#">Congressional District Profiler</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><button type="button" class="btn navbar-btn" name="new_district" id="new_district" value="New District" data-target="#districtModal" data-toggle="modal">New District</button></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <!-- END NAVBAR -->
+    
+    <div class="container">  <!-- CONTAINER -->
+
+        <!-- MODAL -->
+        <div class="modal fade" id="districtModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Select a Congressional District</div>
+                </div>
+                <div class="modal-body">
+                    <p>Select a new congressional district.</p>
+                    <select id="state_selector"><option value="">Select a State</option></select>
+                    <select id="district_selector"><option value="">Select a District</option></select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="change_district_button">Change District</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
                 </div>
             </div>
+        </div>
+        <!-- END MODAL -->
 
-            {% for section in census_charts %}
-                <div class="row">
-                    <div class="col-lg-8">                   
-                        <div class="section_name">{{ section[0] }}</div>
-                    </div>
+        <!-- MAP -->
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="section_name">Map</div>
+                <iframe id="map" class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+src="https://www.govtrack.us/congress/members/embed/mapframe?&bounds=-147.198,52.552,-47.002,17.249"></iframe>
+            </div>
+        </div>
+        <!-- END MAP -->
+
+
+        <!-- CENSUS CHARTS -->
+        {% for section in census_charts %}
+            <div class="row">
+                <div class="col-lg-8">                   
+                    <div class="section_name">{{ section[0] }}</div>
                 </div>
-                {% for chart in section[1] %}
-                    <div class="row">
-                        <div class="col-lg-8">           
-                            <div class="chart_name">{{ chart[0] }}</div>
-                            <div class="chart_description">{{ chart[1] }}</div>
-                            <div class="chart_container"><canvas class="chart" id="{{ chart[2] }}"></canvas></div>
-                            <div class="chart_annotation" id="{{ chart[2] }}_annotations">
-                                {% for annotation in chart[3] %}
-                                    {{ annotation }}<br>
-                                {% endfor %}
-                            </div>
+            </div>
+            {% for chart in section[1] %}
+                <div class="row">
+                    <div class="col-lg-8">           
+                        <div class="chart_name">{{ chart[0] }}</div>
+                        <div class="chart_description">{{ chart[1] }}</div>
+                        <div class="chart_container"><canvas class="chart" id="{{ chart[2] }}"></canvas></div>
+                        <div class="chart_annotation" id="{{ chart[2] }}_annotations">
+                            {% for annotation in chart[3] %}
+                                {{ annotation }}<br>
+                            {% endfor %}
                         </div>
                     </div>
-                {% endfor %}
+                </div>
             {% endfor %}
+        {% endfor %}
+        <!-- END CENSUS CHARTS -->
 
 
-            <footer>
-                <p>Created by <a href="mailto:jkeltner@gmail.com">Jeff Keltner</a>.</p>
-            </footer>
+        <footer>
+            <p>Created by <a href="mailto:jkeltner@gmail.com">Jeff Keltner</a>.</p>
+        </footer>
 
-        </div> <!-- CLOSE CONTAINER -->
+    </div> <!-- CLOSE CONTAINER -->
 
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script>
-            $( document ).ready(function() {
-                createCharts();
-                reCenterMap(state="{{state}}", district="{{district}}");  
-                updateCensusCharts(state=states["{{state}}"]["FIPS"], district="{{district}}");
-            });
-        </script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        $( document ).ready(function() {
+            initialLoad(state="{{ state }}", district="{{ district }}");
+        });
+    </script>
+
     </body>
 </html>
 {% endautoescape %}

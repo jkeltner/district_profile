@@ -1,226 +1,283 @@
 var states = {
   "AL" : {
-    "Name": "Alabama",
-    "FIPS": "01"
+    "name": "Alabama",
+    "FIPS": "01",
+    "districts": 7
   },
   "AK" : {
-    "Name": "Alaska",
-    "FIPS": "02"
+    "name": "Alaska",
+    "FIPS": "02",
+    "districts": 1
   },
   "AZ" : {
-    "Name": "Arizona",
-    "FIPS": "04"
+    "name": "Arizona",
+    "FIPS": "04",
+    "districts": 9
   },
   "AR" : {
-    "Name": "Arkansas",
+    "name": "Arkansas",
     "FIPS": "05",
+    "districts": 4
   },
   "CA" : {
-    "Name": "California",
-    "FIPS": "06"
+    "name": "California",
+    "FIPS": "06",
+    "districts": 53
   },
   "CO" : {
-    "Name": "Colorado",
-    "FIPS": "08"
+    "name": "Colorado",
+    "FIPS": "08",
+    "districts": 7
   },
   "CT" : {
-    "Name": "Connecticut",
-    "FIPS": "09"
+    "name": "Connecticut",
+    "FIPS": "09",
+    "districts": 5
   },
   "DE" : {
-    "Name": "Delaware",
-    "FIPS": "10"
+    "name": "Delaware",
+    "FIPS": "10",
+    "districts": 1
   },
   "DC" : {
-    "Name": "District of Columbia",
-    "FIPS": "11"
+    "name": "District of Columbia",
+    "FIPS": "11",
+    "districts": 1
   },
   "FL" : {
-    "Name": "Florida",
-    "FIPS": "12"
+    "name": "Florida",
+    "FIPS": "12",
+    "districts": 27
   },
   "GA" : {
-    "Name" : "Georgia",
-    "FIPS" : "13"
+    "name" : "Georgia",
+    "FIPS" : "13",
+    "districts": 14
   },
   "HI" : {
-    "Name" : "Hawaii",
-    "FIPS" : "15"
+    "name" : "Hawaii",
+    "FIPS" : "15",
+    "districts": 2
   },
   "ID" : {
-    "Name" : "Idaho",
-    "FIPS" : "16"
+    "name" : "Idaho",
+    "FIPS" : "16",
+    "districts": 2
   },
   "IL" : {
-    "Name" : "Illinois",
-    "FIPS" : "17"
+    "name" : "Illinois",
+    "FIPS" : "17",
+    "districts": 18
   },
   "IN" : {
-    "Name" : "Indiana",
-    "FIPS" : "18"
+    "name" : "Indiana",
+    "FIPS" : "18",
+    "districts": 9
   },
   "IA" : {
-    "Name" : "Iowa",
-    "FIPS" : "19"
+    "name" : "Iowa",
+    "FIPS" : "19",
+    "districts": 4
   },
   "KS" : {
-    "Name" : "Kansas",
-    "FIPS" : "20"
+    "name" : "Kansas",
+    "FIPS" : "20",
+    "districts": 4
   },
   "KY" : {
-    "Name" : "Kentucky",
-    "FIPS" : "21"
+    "name" : "Kentucky",
+    "FIPS" : "21",
+    "districts": 6
   },
   "LA" : {
-    "Name" : "Louisiana",
-    "FIPS" : "22"
+    "name" : "Louisiana",
+    "FIPS" : "22",
+    "districts": 6
   },
   "ME" : {
-    "Name" : "Maine",
-    "FIPS" : "23"
+    "name" : "Maine",
+    "FIPS" : "23",
+    "districts": 2
   },
   "MD" : {
-    "Name" : "Maryland",
-    "FIPS" : "24"
+    "name" : "Maryland",
+    "FIPS" : "24",
+    "districts": 8
   },
   "MA" : {
-    "Name" : "Massachusetts",
-    "FIPS" : "25"
+    "name" : "Massachusetts",
+    "FIPS" : "25",
+    "districts": 9
   },
   "MI" : {
-    "Name" : "Michigan",
-    "FIPS" : "26"
+    "name" : "Michigan",
+    "FIPS" : "26",
+    "districts": 14
   },
   "MN" : {
-    "Name" : "Minnesota",
-    "FIPS" : "27"
+    "name" : "Minnesota",
+    "FIPS" : "27",
+    "districts": 8
   },
   "MS" : {
-    "Name" : "Mississippi",
-    "FIPS" : "28"
+    "name" : "Mississippi",
+    "FIPS" : "28",
+    "districts": 4
   },
   "MO" : {
-    "Name" : "Missouri",
-    "FIPS" : "29"
+    "name" : "Missouri",
+    "FIPS" : "29",
+    "districts": 8
   },
   "MT" : {
-    "Name" : "Montana",
-    "FIPS" : "30"
+    "name" : "Montana",
+    "FIPS" : "30",
+    "districts": 1
   },
   "NE" : {
-    "Name" : "Nebraska",
-    "FIPS" : "31"
+    "name" : "Nebraska",
+    "FIPS" : "31",
+    "districts": 1
   },
   "NV" : {
-    "Name" : "Nevada",
-    "FIPS" : "32"
+    "name" : "Nevada",
+    "FIPS" : "32",
+    "districts": 4
   },
   "NH" : {
-    "Name" : "New Hampshire",
-    "FIPS" : "33"
+    "name" : "New Hampshire",
+    "FIPS" : "33",
+    "districts": 2
   },
   "NJ" : {
-    "Name" : "New Jersey",
-    "FIPS" : "34"
+    "name" : "New Jersey",
+    "FIPS" : "34",
+    "districts": 12
   },
   "NM" : {
-    "Name" : "New Mexico",
-    "FIPS" : "35"
+    "name" : "New Mexico",
+    "FIPS" : "35",
+    "districts": 3
   },
   "NY" : {
-    "Name" : "New York",
-    "FIPS" : "36"
+    "name" : "New York",
+    "FIPS" : "36",
+    "districts": 27
   },
   "NC" : {
-    "Name" : "North Carolina",
-    "FIPS" : "37"
+    "name" : "North Carolina",
+    "FIPS" : "37",
+    "districts": 9
   },
   "ND" : {
-    "Name" : "North Dakota",
-    "FIPS" : "38"
+    "name" : "North Dakota",
+    "FIPS" : "38",
+    "districts": 1
   },
   "OH" : {
-    "Name" : "Ohio",
-    "FIPS" : "39"
+    "name" : "Ohio",
+    "FIPS" : "39",
+    "districts": 16
   },
   "OK" : {
-    "Name" : "Oklahoma",
-    "FIPS" : "40"
+    "name" : "Oklahoma",
+    "FIPS" : "40",
+    "districts": 5
   },
   "OR" : {
-    "Name" : "Oregon",
-    "FIPS" : "41"
+    "name" : "Oregon",
+    "FIPS" : "41",
+    "districts": 5
   },
   "PA" : {
-    "Name" : "Pennsylvania",
-    "FIPS" : "42"
+    "name" : "Pennsylvania",
+    "FIPS" : "42",
+    "districts": 18
   },
   "RI" : {
-    "Name" : "Rhode Island",
-    "FIPS" : "44"
+    "name" : "Rhode Island",
+    "FIPS" : "44",
+    "districts": 2
   },
   "SC" : {
-    "Name" : "South Carolina",
-    "FIPS" : "45"
+    "name" : "South Carolina",
+    "FIPS" : "45",
+    "districts": 7
   },
   "SD" : {
-    "Name" : "South Dakota",
-    "FIPS" : "46"
+    "name" : "South Dakota",
+    "FIPS" : "46",
+    "districts": 1
   },
   "TN" : {
-    "Name" : "Tennessee",
-    "FIPS" : "47"
+    "name" : "Tennessee",
+    "FIPS" : "47",
+    "districts": 9
   },
   "TX" : {
-    "Name" : "Texas",
-    "FIPS" : "48"
+    "name" : "Texas",
+    "FIPS" : "48",
+    "districts": 36
   },
   "UT" : {
-    "Name" : "Utah",
-    "FIPS" : "49"
+    "name" : "Utah",
+    "FIPS" : "49",
+    "districts": 4
   },
   "VT" : {
-    "Name" : "Vermont",
-    "FIPS" : "50"
+    "name" : "Vermont",
+    "FIPS" : "50",
+    "districts": 1
   },
   "VA" : {
-    "Name" : "Virginia",
-    "FIPS" : "51"
+    "name" : "Virginia",
+    "FIPS" : "51",
+    "districts": 11
   },
   "WA" : {
-    "Name" : "Washington",
-    "FIPS" : "53"
+    "name" : "Washington",
+    "FIPS" : "53",
+    "districts": 10
   },
   "WV" : {
-    "Name" : "West Virginia",
-    "FIPS" : "54"
+    "name" : "West Virginia",
+    "FIPS" : "54",
+    "districts": 3
   },
   "WI" : {
-    "Name" : "Wisconsin",
-    "FIPS" : "55"
+    "name" : "Wisconsin",
+    "FIPS" : "55",
+    "districts": 8
   },
   "WY" : {
-    "Name" : "Wyoming",
-    "FIPS" : "56"
-  },
+    "name" : "Wyoming",
+    "FIPS" : "56",
+    "districts": 1
+  }
+}
+
+/*
+ * Non-states FIPS territories. 
+ * 
+ *   
   "GU" : {
-    "Name" : "Guam",
+    "name" : "Guam",
     "FIPS" : "66"
   },
   "MP" : {
-    "Name" : "Northern Mariana Islands",
+    "name" : "Northern Mariana Islands",
     "FIPS" : "69"
   },
   "AS" : {
-    "Name" : "American Samoa",
+    "name" : "American Samoa",
     "FIPS" : "60"
   },
   "PR" : {
-    "Name" : "Puerto Rico",
+    "name" : "Puerto Rico",
     "FIPS" : "72"
   },
   "VI" : {
-    "Name" : "Virgin Islands",
+    "name" : "Virgin Islands",
     "FIPS" : "78"
   }
-}
+*/
